@@ -49,16 +49,14 @@ final class NavigatorViewManager: ObservableObject {
     
     func popTo<Pepito: View>(_ type: Pepito.Type) {
         guard let index = self.path.lastIndex(where: { $0.typeName == String(describing: Pepito.self) }) else {
+            self.popToRoot()
             return
         }
         
         self.path.removeSubrange((index + 1)..<self.path.count)
     }
+    
+    func popToRoot() {
+        self.path.removeAll()
+    }
 }
-/*
- 
- 0 - login
- 1 - home
- 2 - detalle
- 3 - edicion
- */

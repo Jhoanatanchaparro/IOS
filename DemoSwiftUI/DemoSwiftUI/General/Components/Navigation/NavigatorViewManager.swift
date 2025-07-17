@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct NavigatorScreen: Identifiable, Hashable {
     
     let view: AnyView

@@ -11,7 +11,10 @@ import SwiftUI
 struct DemoSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            NavigatorView(root: LoginView.build())
+            ZStack {
+                NavigatorView(root: LoginView.build())
+                LoadingView()
+            }
         }
     }
 }

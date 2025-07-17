@@ -23,7 +23,14 @@
 		FB262DD42E01D87E000A5AC4 /* Success.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB262DCF2E01D87E000A5AC4 /* Success.xcassets */; };
 		FB262DD52E01D87E000A5AC4 /* Warning.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB262DD02E01D87E000A5AC4 /* Warning.xcassets */; };
 		FB262DD62E01D87E000A5AC4 /* Opacity.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB262DCC2E01D87E000A5AC4 /* Opacity.xcassets */; };
-		FB2F06EF2DE7855000BC1605 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F06EC2DE7855000BC1605 /* ContentView.swift */; };
+		FB2935422E2556A500AB282C /* CarDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2935412E25569500AB282C /* CarDTO.swift */; };
+		FB2935442E26A04800AB282C /* BrandDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2935432E26A04700AB282C /* BrandDTO.swift */; };
+		FB2935462E26A05A00AB282C /* EngineDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2935452E26A05800AB282C /* EngineDTO.swift */; };
+		FB2935482E26A36800AB282C /* CarsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2935472E26A36000AB282C /* CarsService.swift */; };
+		FB29354B2E26A5CA00AB282C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FB29354A2E26A5CA00AB282C /* Alamofire */; };
+		FB2935502E26B3A600AB282C /* ServiceParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB29354F2E26B3A300AB282C /* ServiceParse.swift */; };
+		FB2935522E26B42C00AB282C /* CarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2935512E26B42200AB282C /* CarInteractor.swift */; };
+		FB2935542E26B48700AB282C /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2935532E26B48500AB282C /* Engine.swift */; };
 		FB2F06F02DE7855000BC1605 /* DemoSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F06ED2DE7855000BC1605 /* DemoSwiftUIApp.swift */; };
 		FB2F06F12DE7855000BC1605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2F06EB2DE7855000BC1605 /* Assets.xcassets */; };
 		FB2F06FD2DE786D800BC1605 /* Error.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2F06FC2DE786D800BC1605 /* Error.xcassets */; };
@@ -31,6 +38,12 @@
 		FB2F07052DE7873B00BC1605 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2F07042DE7873B00BC1605 /* Icons.xcassets */; };
 		FB67A2E12DE787B500A10D7A /* Backgrounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB67A2E02DE787B500A10D7A /* Backgrounds.xcassets */; };
 		FB67A2E42DE78B3600A10D7A /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB67A2E32DE78B2600A10D7A /* BaseTextField.swift */; };
+		FB7302D72E2800D0003BA8F8 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7302D62E2800CE003BA8F8 /* Brand.swift */; };
+		FB7302D92E280199003BA8F8 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7302D82E280196003BA8F8 /* Car.swift */; };
+		FB7302DB2E2802B7003BA8F8 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7302DA2E2802B3003BA8F8 /* DateManager.swift */; };
+		FB7302E12E280856003BA8F8 /* CarsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7302E02E28084D003BA8F8 /* CarsListView.swift */; };
+		FB7302E32E28085E003BA8F8 /* CarsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7302E22E280859003BA8F8 /* CarsListViewModel.swift */; };
+		FB7302E62E2814B9003BA8F8 /* GenericList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7302E52E2814B8003BA8F8 /* GenericList.swift */; };
 		FB9ACEF82DF35E18009E124B /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9ACEF72DF35E11009E124B /* BaseButton.swift */; };
 		FB9ACEFA2DF36221009E124B /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9ACEF92DF3621D009E124B /* SecondaryButton.swift */; };
 		FBA57EB32DFC7D5C00A998D4 /* PrimaryIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA57EB22DFC7D5900A998D4 /* PrimaryIconButton.swift */; };
@@ -41,14 +54,19 @@
 		FBB5A4B52DF0BF8E0038BD84 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB5A4B42DF0BF880038BD84 /* PrimaryButton.swift */; };
 		FBB5A4B82DF0C3B20038BD84 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB5A4B72DF0C3AE0038BD84 /* Spacing.swift */; };
 		FBD5AD5D2E05B578006EB293 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD5AD5C2E05B572006EB293 /* LoginViewModel.swift */; };
-		FBD5AD602E05C0A8006EB293 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD5AD5F2E05C0A4006EB293 /* LoginService.swift */; };
-		FBD5AD622E05C203006EB293 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD5AD612E05C1FB006EB293 /* BaseError.swift */; };
-		FBEF1E042E1448BD002F131A /* MLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF1E032E1448B7002F131A /* MLoginView.swift */; };
-		FBEF1E062E1448C5002F131A /* MLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF1E052E1448C1002F131A /* MLoginViewController.swift */; };
-		FBEF1E092E145104002F131A /* MLoginFabricController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF1E082E1450FA002F131A /* MLoginFabricController.swift */; };
+		FBD5AD602E05C0A8006EB293 /* SignInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD5AD5F2E05C0A4006EB293 /* SignInService.swift */; };
+		FBD5AD622E05C203006EB293 /* ServiceErrorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD5AD612E05C1FB006EB293 /* ServiceErrorDTO.swift */; };
 		FBEF1E0D2E15A805002F131A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF1E0C2E15A7FF002F131A /* DetailView.swift */; };
 		FBEF1E112E15A882002F131A /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF1E102E15A872002F131A /* NavigatorView.swift */; };
 		FBEF1E132E15A89B002F131A /* NavigatorViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF1E122E15A886002F131A /* NavigatorViewManager.swift */; };
+		FBEF1E192E16EFF1002F131A /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF1E182E16EFEB002F131A /* ServiceError.swift */; };
+		FBEF1E1B2E16F134002F131A /* SignOutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF1E1A2E16F12B002F131A /* SignOutService.swift */; };
+		FBEF1E1E2E16F1D9002F131A /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF1E1D2E16F1D2002F131A /* UserInteractor.swift */; };
+		FBEF1E202E16F23F002F131A /* LoginServiceInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF1E1F2E16F237002F131A /* LoginServiceInput.swift */; };
+		FBEF1E222E16F2C7002F131A /* SessionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF1E212E16F2BF002F131A /* SessionDTO.swift */; };
+		FBEF1E242E16F4DD002F131A /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF1E232E16F4D4002F131A /* UserSession.swift */; };
+		FBEF1E262E16F91A002F131A /* ViewErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF1E252E16F911002F131A /* ViewErrorHandler.swift */; };
+		FBEF1E292E16FB74002F131A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF1E282E16FB6C002F131A /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,15 +87,27 @@
 		FB262DCE2E01D87E000A5AC4 /* Secondary.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Secondary.xcassets; sourceTree = "<group>"; };
 		FB262DCF2E01D87E000A5AC4 /* Success.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Success.xcassets; sourceTree = "<group>"; };
 		FB262DD02E01D87E000A5AC4 /* Warning.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Warning.xcassets; sourceTree = "<group>"; };
+		FB2935412E25569500AB282C /* CarDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDTO.swift; sourceTree = "<group>"; };
+		FB2935432E26A04700AB282C /* BrandDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDTO.swift; sourceTree = "<group>"; };
+		FB2935452E26A05800AB282C /* EngineDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineDTO.swift; sourceTree = "<group>"; };
+		FB2935472E26A36000AB282C /* CarsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsService.swift; sourceTree = "<group>"; };
+		FB29354F2E26B3A300AB282C /* ServiceParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceParse.swift; sourceTree = "<group>"; };
+		FB2935512E26B42200AB282C /* CarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInteractor.swift; sourceTree = "<group>"; };
+		FB2935532E26B48500AB282C /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		FB2F06C62DE7842E00BC1605 /* DemoSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2F06EB2DE7855000BC1605 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FB2F06EC2DE7855000BC1605 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FB2F06ED2DE7855000BC1605 /* DemoSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSwiftUIApp.swift; sourceTree = "<group>"; };
 		FB2F06FC2DE786D800BC1605 /* Error.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Error.xcassets; sourceTree = "<group>"; };
 		FB2F07002DE786F100BC1605 /* Info.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Info.xcassets; sourceTree = "<group>"; };
 		FB2F07042DE7873B00BC1605 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		FB67A2E02DE787B500A10D7A /* Backgrounds.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Backgrounds.xcassets; sourceTree = "<group>"; };
 		FB67A2E32DE78B2600A10D7A /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
+		FB7302D62E2800CE003BA8F8 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		FB7302D82E280196003BA8F8 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		FB7302DA2E2802B3003BA8F8 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		FB7302E02E28084D003BA8F8 /* CarsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListView.swift; sourceTree = "<group>"; };
+		FB7302E22E280859003BA8F8 /* CarsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListViewModel.swift; sourceTree = "<group>"; };
+		FB7302E52E2814B8003BA8F8 /* GenericList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericList.swift; sourceTree = "<group>"; };
 		FB9ACEF72DF35E11009E124B /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		FB9ACEF92DF3621D009E124B /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		FBA57EB22DFC7D5900A998D4 /* PrimaryIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryIconButton.swift; sourceTree = "<group>"; };
@@ -88,14 +118,19 @@
 		FBB5A4B42DF0BF880038BD84 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		FBB5A4B72DF0C3AE0038BD84 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		FBD5AD5C2E05B572006EB293 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		FBD5AD5F2E05C0A4006EB293 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
-		FBD5AD612E05C1FB006EB293 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
-		FBEF1E032E1448B7002F131A /* MLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLoginView.swift; sourceTree = "<group>"; };
-		FBEF1E052E1448C1002F131A /* MLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLoginViewController.swift; sourceTree = "<group>"; };
-		FBEF1E082E1450FA002F131A /* MLoginFabricController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLoginFabricController.swift; sourceTree = "<group>"; };
+		FBD5AD5F2E05C0A4006EB293 /* SignInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInService.swift; sourceTree = "<group>"; };
+		FBD5AD612E05C1FB006EB293 /* ServiceErrorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceErrorDTO.swift; sourceTree = "<group>"; };
 		FBEF1E0C2E15A7FF002F131A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		FBEF1E102E15A872002F131A /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
 		FBEF1E122E15A886002F131A /* NavigatorViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorViewManager.swift; sourceTree = "<group>"; };
+		FBEF1E182E16EFEB002F131A /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		FBEF1E1A2E16F12B002F131A /* SignOutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutService.swift; sourceTree = "<group>"; };
+		FBEF1E1D2E16F1D2002F131A /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
+		FBEF1E1F2E16F237002F131A /* LoginServiceInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceInput.swift; sourceTree = "<group>"; };
+		FBEF1E212E16F2BF002F131A /* SessionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDTO.swift; sourceTree = "<group>"; };
+		FBEF1E232E16F4D4002F131A /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		FBEF1E252E16F911002F131A /* ViewErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewErrorHandler.swift; sourceTree = "<group>"; };
+		FBEF1E282E16FB6C002F131A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB29354B2E26A5CA00AB282C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,10 +203,11 @@
 			children = (
 				FB262DCA2E01D696000A5AC4 /* Info.plist */,
 				FB2F06F22DE7861F00BC1605 /* General */,
+				FBEF1E142E16EEC7002F131A /* Entities */,
 				FB67A2E22DE787EC00A10D7A /* Scenes */,
+				FBEF1E1C2E16F198002F131A /* Interactors */,
 				FBD5AD5E2E05C084006EB293 /* Services */,
 				FB2F06EB2DE7855000BC1605 /* Assets.xcassets */,
-				FB2F06EC2DE7855000BC1605 /* ContentView.swift */,
 				FB2F06ED2DE7855000BC1605 /* DemoSwiftUIApp.swift */,
 			);
 			path = DemoSwiftUI;
@@ -189,7 +226,9 @@
 		FB2F06F32DE7863500BC1605 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				FBD5AD612E05C1FB006EB293 /* BaseError.swift */,
+				FB7302DA2E2802B3003BA8F8 /* DateManager.swift */,
+				FB29354F2E26B3A300AB282C /* ServiceParse.swift */,
+				FBEF1E252E16F911002F131A /* ViewErrorHandler.swift */,
 				FB262DC82E01D5DC000A5AC4 /* Fonts.swift */,
 				FBB5A4B72DF0C3AE0038BD84 /* Spacing.swift */,
 			);
@@ -199,6 +238,8 @@
 		FB2F06F42DE7863A00BC1605 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FB7302E42E2814B2003BA8F8 /* List */,
+				FBEF1E272E16FB60002F131A /* Loading */,
 				FBEF1E0F2E15A864002F131A /* Navigation */,
 				FB262DBA2E01D541000A5AC4 /* Texts */,
 				FB262DB72E01D262000A5AC4 /* CheckBox */,
@@ -269,8 +310,8 @@
 		FB67A2E22DE787EC00A10D7A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FB7302DE2E280841003BA8F8 /* Car */,
 				FBEF1E0E2E15A809002F131A /* Detail */,
-				FBEF1E012E144538002F131A /* LoginMVC */,
 				FB262DB22E01C97F000A5AC4 /* Login */,
 			);
 			path = Scenes;
@@ -284,6 +325,31 @@
 				FBB3CC592DFA00BE00079592 /* Base */,
 			);
 			path = TextFields;
+			sourceTree = "<group>";
+		};
+		FB7302DE2E280841003BA8F8 /* Car */ = {
+			isa = PBXGroup;
+			children = (
+				FB7302DF2E280848003BA8F8 /* List */,
+			);
+			path = Car;
+			sourceTree = "<group>";
+		};
+		FB7302DF2E280848003BA8F8 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				FB7302E02E28084D003BA8F8 /* CarsListView.swift */,
+				FB7302E22E280859003BA8F8 /* CarsListViewModel.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		FB7302E42E2814B2003BA8F8 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				FB7302E52E2814B8003BA8F8 /* GenericList.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		FBB3CC592DFA00BE00079592 /* Base */ = {
@@ -311,27 +377,11 @@
 		FBD5AD5E2E05C084006EB293 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FBD5AD5F2E05C0A4006EB293 /* LoginService.swift */,
+				FB2935472E26A36000AB282C /* CarsService.swift */,
+				FBEF1E1A2E16F12B002F131A /* SignOutService.swift */,
+				FBD5AD5F2E05C0A4006EB293 /* SignInService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		FBEF1E012E144538002F131A /* LoginMVC */ = {
-			isa = PBXGroup;
-			children = (
-				FBEF1E032E1448B7002F131A /* MLoginView.swift */,
-				FBEF1E072E1450EE002F131A /* Controllers */,
-			);
-			path = LoginMVC;
-			sourceTree = "<group>";
-		};
-		FBEF1E072E1450EE002F131A /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				FBEF1E082E1450FA002F131A /* MLoginFabricController.swift */,
-				FBEF1E052E1448C1002F131A /* MLoginViewController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		FBEF1E0E2E15A809002F131A /* Detail */ = {
@@ -351,6 +401,65 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		FBEF1E142E16EEC7002F131A /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FBEF1E172E16EF04002F131A /* ServiceParams */,
+				FBEF1E162E16EEDB002F131A /* Models */,
+				FBEF1E152E16EED1002F131A /* DTO */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		FBEF1E152E16EED1002F131A /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				FB2935452E26A05800AB282C /* EngineDTO.swift */,
+				FB2935432E26A04700AB282C /* BrandDTO.swift */,
+				FB2935412E25569500AB282C /* CarDTO.swift */,
+				FBEF1E212E16F2BF002F131A /* SessionDTO.swift */,
+				FBD5AD612E05C1FB006EB293 /* ServiceErrorDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		FBEF1E162E16EEDB002F131A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FB7302D82E280196003BA8F8 /* Car.swift */,
+				FB7302D62E2800CE003BA8F8 /* Brand.swift */,
+				FB2935532E26B48500AB282C /* Engine.swift */,
+				FBEF1E232E16F4D4002F131A /* UserSession.swift */,
+				FBEF1E182E16EFEB002F131A /* ServiceError.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FBEF1E172E16EF04002F131A /* ServiceParams */ = {
+			isa = PBXGroup;
+			children = (
+				FBEF1E1F2E16F237002F131A /* LoginServiceInput.swift */,
+			);
+			path = ServiceParams;
+			sourceTree = "<group>";
+		};
+		FBEF1E1C2E16F198002F131A /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				FB2935512E26B42200AB282C /* CarInteractor.swift */,
+				FBEF1E1D2E16F1D2002F131A /* UserInteractor.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		FBEF1E272E16FB60002F131A /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				FBEF1E282E16FB6C002F131A /* LoadingView.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -368,6 +477,7 @@
 			);
 			name = DemoSwiftUI;
 			packageProductDependencies = (
+				FB29354A2E26A5CA00AB282C /* Alamofire */,
 			);
 			productName = DemoSwiftUI;
 			productReference = FB2F06C62DE7842E00BC1605 /* DemoSwiftUI.app */;
@@ -397,6 +507,9 @@
 			);
 			mainGroup = FB2F06BD2DE7842E00BC1605;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FB2935492E26A5CA00AB282C /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FB2F06C72DE7842E00BC1605 /* Products */;
 			projectDirPath = "";
@@ -435,14 +548,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBEF1E192E16EFF1002F131A /* ServiceError.swift in Sources */,
+				FB7302DB2E2802B7003BA8F8 /* DateManager.swift in Sources */,
+				FB2935502E26B3A600AB282C /* ServiceParse.swift in Sources */,
 				FB262DC02E01D571000A5AC4 /* TextLabel.swift in Sources */,
+				FB2935482E26A36800AB282C /* CarsService.swift in Sources */,
 				FB262DB92E01D273000A5AC4 /* CheckBox.swift in Sources */,
+				FB2935462E26A05A00AB282C /* EngineDTO.swift in Sources */,
 				FBEF1E0D2E15A805002F131A /* DetailView.swift in Sources */,
-				FBEF1E062E1448C5002F131A /* MLoginViewController.swift in Sources */,
+				FBEF1E202E16F23F002F131A /* LoginServiceInput.swift in Sources */,
+				FB7302E12E280856003BA8F8 /* CarsListView.swift in Sources */,
 				FBB3CC562DF9FA8200079592 /* CoreTextField.swift in Sources */,
-				FBEF1E092E145104002F131A /* MLoginFabricController.swift in Sources */,
+				FBEF1E1B2E16F134002F131A /* SignOutService.swift in Sources */,
 				FB9ACEFA2DF36221009E124B /* SecondaryButton.swift in Sources */,
-				FBEF1E042E1448BD002F131A /* MLoginView.swift in Sources */,
+				FB7302D72E2800D0003BA8F8 /* Brand.swift in Sources */,
+				FB2935442E26A04800AB282C /* BrandDTO.swift in Sources */,
+				FBEF1E1E2E16F1D9002F131A /* UserInteractor.swift in Sources */,
 				FBEF1E132E15A89B002F131A /* NavigatorViewManager.swift in Sources */,
 				FBA57EB52DFC855200A998D4 /* PasswordTextField.swift in Sources */,
 				FB262DC22E01D577000A5AC4 /* TextTitle.swift in Sources */,
@@ -450,20 +571,29 @@
 				FBB3CC582DFA00B300079592 /* ErrorTextField.swift in Sources */,
 				FBB5A4B52DF0BF8E0038BD84 /* PrimaryButton.swift in Sources */,
 				FB9ACEF82DF35E18009E124B /* BaseButton.swift in Sources */,
+				FB7302E62E2814B9003BA8F8 /* GenericList.swift in Sources */,
 				FB262DB42E01CA09000A5AC4 /* LoginView.swift in Sources */,
 				FBA57EB32DFC7D5C00A998D4 /* PrimaryIconButton.swift in Sources */,
+				FB2935422E2556A500AB282C /* CarDTO.swift in Sources */,
 				FB67A2E42DE78B3600A10D7A /* BaseTextField.swift in Sources */,
 				FBB3CC5B2DFA098F00079592 /* EmailTextField.swift in Sources */,
+				FB7302D92E280199003BA8F8 /* Car.swift in Sources */,
+				FB2935522E26B42C00AB282C /* CarInteractor.swift in Sources */,
 				FB262DBE2E01D56B000A5AC4 /* TextCaption.swift in Sources */,
+				FBEF1E292E16FB74002F131A /* LoadingView.swift in Sources */,
 				FB262DB62E01D0AE000A5AC4 /* LinkButton.swift in Sources */,
+				FB2935542E26B48700AB282C /* Engine.swift in Sources */,
 				FB262DC92E01D5DE000A5AC4 /* Fonts.swift in Sources */,
-				FBD5AD602E05C0A8006EB293 /* LoginService.swift in Sources */,
-				FB2F06EF2DE7855000BC1605 /* ContentView.swift in Sources */,
-				FBD5AD622E05C203006EB293 /* BaseError.swift in Sources */,
+				FBD5AD602E05C0A8006EB293 /* SignInService.swift in Sources */,
+				FBD5AD622E05C203006EB293 /* ServiceErrorDTO.swift in Sources */,
 				FBEF1E112E15A882002F131A /* NavigatorView.swift in Sources */,
 				FB2F06F02DE7855000BC1605 /* DemoSwiftUIApp.swift in Sources */,
+				FBEF1E242E16F4DD002F131A /* UserSession.swift in Sources */,
+				FBEF1E262E16F91A002F131A /* ViewErrorHandler.swift in Sources */,
 				FB262DBC2E01D565000A5AC4 /* TextBody.swift in Sources */,
+				FBEF1E222E16F2C7002F131A /* SessionDTO.swift in Sources */,
 				FBD5AD5D2E05B578006EB293 /* LoginViewModel.swift in Sources */,
+				FB7302E32E28085E003BA8F8 /* CarsListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,6 +797,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FB2935492E26A5CA00AB282C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FB29354A2E26A5CA00AB282C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB2935492E26A5CA00AB282C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FB2F06BE2DE7842E00BC1605 /* Project object */;
 }

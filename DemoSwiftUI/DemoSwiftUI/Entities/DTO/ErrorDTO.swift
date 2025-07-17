@@ -5,7 +5,11 @@
 //  Created by Kenyi Rodriguez on 20/06/25.
 //
 
-struct BaseError: Error {
+struct ServiceErrorDTO: Error {
     let errorMessage: String
     let statusCode: Int
+    
+    static var defaultError: ServiceErrorDTO {
+        
+    }
 }

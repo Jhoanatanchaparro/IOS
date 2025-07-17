@@ -86,30 +86,42 @@ extension LoginView {
 extension LoginView {
     
     static func build() -> NavigatorScreen {
-        let service = LoginService()
-        let viewModel = LoginViewModel(service: service)
+        let signInService = SignInService()
+        let signOutService = SignOutService()
+        let interactor = UserInteractor(signInService: signInService, signOutService: signOutService)
+        let errorHandler = LoginErrorHandler()
+        let viewModel = LoginViewModel(interactor: interactor, errorHandler: errorHandler)
         let view = LoginView(viewModel: viewModel)
         let screen = NavigatorScreen(view: view)
         return screen
     }
     
     static func buildPresent() -> some View {
-        let service = LoginService()
-        let viewModel = LoginViewModel(service: service)
+        let signInService = SignInServiceMock()
+        let signOutService = SignOutServiceMock()
+        let interactor = UserInteractor(signInService: signInService, signOutService: signOutService)
+        let errorHandler = LoginErrorHandler()
+        let viewModel = LoginViewModel(interactor: interactor, errorHandler: errorHandler)
         let view = LoginView(viewModel: viewModel)
         return view
     }
     
     static func buildSuccessMock() -> some View {
-        let service = LoginServiceMock()
-        let viewModel = LoginViewModel(service: service)
+        let signInService = SignInServiceMock()
+        let signOutService = SignOutServiceMock()
+        let interactor = UserInteractor(signInService: signInService, signOutService: signOutService)
+        let errorHandler = LoginErrorHandler()
+        let viewModel = LoginViewModel(interactor: interactor, errorHandler: errorHandler)
         let view = LoginView(viewModel: viewModel)
         return view
     }
     
     static func buildErrorMock() -> some View {
-        let service = LoginServiceErrorMock()
-        let viewModel = LoginViewModel(service: service)
+        let signInService = SignInServiceErrorMock()
+        let signOutService = SignOutServiceMock()
+        let interactor = UserInteractor(signInService: signInService, signOutService: signOutService)
+        let errorHandler = LoginErrorHandler()
+        let viewModel = LoginViewModel(interactor: interactor, errorHandler: errorHandler)
         let view = LoginView(viewModel: viewModel)
         return view
     }

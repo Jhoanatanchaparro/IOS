@@ -17,11 +17,13 @@ class LoginViewModel: ObservableObject {
     
     @Published private(set) var canDoLogin: Bool = false
     
-    private let service: LoginServiceProtocol
+    private let interactor: UserInteractorProtocol
+    private let errorHandler: ViewErrorHandler
     private var task: AnyCancellable?
     
-    init(service: LoginServiceProtocol) {
-        self.service = service
+    init(interactor: UserInteractorProtocol, errorHandler: ViewErrorHandler) {
+        self.interactor = interactor
+        self.errorHandler = errorHandler
         self.validateForm()
     }
     
@@ -47,17 +49,17 @@ extension LoginViewModel {
     
     private func doLogin() {
         self.task?.cancel()
-        self.task = self
-            .service.executeWith(self.user, password: self.password)
+        self.showLoading(true)
+        self.task = self.interactor
+            .signIn(self.user, password: self.password)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
+                self?.showLoading(false)
                 defer { self?.task = nil }
                 if case .failure(let error) = completion {
-                    print(error.errorMessage)
+                    self?.errorHandler.execute(error)
                 }
-                
-            } receiveValue: { token in
-                print("LOGIN SUCCESS: \(token)")
+            } receiveValue: {
                 self.goToDetail()
             }
     }
@@ -66,5 +68,9 @@ extension LoginViewModel {
         NavigatorViewManager
             .shared
             .push(DetailView.build())
+    }
+    
+    private func showLoading(_ isShow: Bool) {
+        LoadingViewManager.shared.show = isShow
     }
 }

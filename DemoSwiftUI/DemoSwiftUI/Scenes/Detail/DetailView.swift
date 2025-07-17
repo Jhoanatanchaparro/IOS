@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
+    
     var body: some View {
         
         VStack {
@@ -17,6 +18,10 @@ struct DetailView: View {
                 Text("Ir al Login")
             }
         }
+    }
+    
+    init() {
+        
     }
 }
 
