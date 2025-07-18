@@ -35,7 +35,17 @@ struct CarsServiceMock: CarsServiceProtocol {
         Future { promise in
             promise(.success([.mock, .mock, .mock, .mock, .mock]))
         }
-        .delay(for: .seconds(2), scheduler: DispatchQueue.main)
+        .delay(for: .seconds(0), scheduler: DispatchQueue.main)
+        .eraseToAnyPublisher()
+    }
+}
+
+struct CarsServiceMockFailure: CarsServiceProtocol {
+    func execute() -> AnyPublisher<[CarDTO], ServiceErrorDTO> {
+        Future { promise in
+            promise(.failure(.init(statusCode: 401)))
+        }
+        .delay(for: .seconds(0), scheduler: DispatchQueue.main)
         .eraseToAnyPublisher()
     }
 }

@@ -7,28 +7,40 @@
 
 import SwiftUI
 
-struct GenericList<T: Identifiable>: View {
+struct GenericList<Item: Identifiable>: View {
+    
     private let columns = [GridItem(.flexible(), spacing: Spacing._none)]
-    var status: Status = .loading
-    let loadingView: () -> AnyView
-    let emptyView: () -> AnyView
-    let errorView: (String) -> AnyView
-    let cell: (T) -> AnyView
-    let refreshable: (() -> Void)?
+    
+    private var status: GenericListStatus<Item> = .loading
+    private let cell: (Item) -> AnyView
+    
+    private var emptyView: (() -> AnyView)?
+    private var errorView: ((String) -> AnyView)?
+    private var loadingView: (() -> AnyView)?
+    private var isRefreshable: (() -> Void)?
+    private var onCellSelected: ((Item) -> Void)?
+    
+    init(status: GenericListStatus<Item>, cell: @escaping (Item) -> AnyView) {
+        self.status = status
+        self.cell = cell
+    }
     
     var body: some View {
         ScrollView {
             switch self.status {
             case .loading:
-                self.loadingView()
+                self.loadingView?()
             case .empty:
-                self.emptyView()
+                self.emptyView?()
             case .error(let message):
-                self.errorView(message)
+                self.errorView?(message)
             case .data(let items):
                 LazyVGrid(columns: self.columns, spacing: Spacing._md) {
                     ForEach(items) { item in
                         self.cell(item)
+                            .onTapGesture {
+                                self.onCellSelected?(item)
+                            }
                     }
                 }
                 .padding(Spacing._lg)
@@ -36,16 +48,54 @@ struct GenericList<T: Identifiable>: View {
         }
         .scrollIndicators(.hidden)
         .ignoresSafeArea(.container, edges: .bottom)
-        .refreshable {
-            self.refreshable?()
-        }
+        .conditionalRefreshable(self.isRefreshable)
     }
     
-    enum Status {
-        case loading
-        case empty
-        case error(message: String)
-        case data(items: [T])
+    func onCellSelected(_ value: ((Item) -> Void)?) -> Self {
+        var view = self
+        view.onCellSelected = value
+        return view
+    }
+    
+    func emptyView(_ value: (() -> AnyView)?) -> Self {
+        var view = self
+        view.emptyView = value
+        return view
+    }
+    
+    func errorView(_ value: ((String) -> AnyView)?) -> Self {
+        var view = self
+        view.errorView = value
+        return view
+    }
+    
+    func loadingView(_ value: (() -> AnyView)?) -> Self {
+        var view = self
+        view.loadingView = value
+        return view
+    }
+    
+    func isRefreshable(_ value: (() -> Void)?) -> Self {
+        var view = self
+        view.isRefreshable = value
+        return view
     }
 }
 
+fileprivate extension View {
+    @ViewBuilder
+    func conditionalRefreshable(_ action: (() -> Void)?) -> some View {
+        if let action = action {
+            self.refreshable { action() }
+        } else {
+            self
+        }
+    }
+}
+
+enum GenericListStatus<Item: Identifiable> {
+    case loading
+    case empty
+    case error(message: String)
+    case data(items: [Item])
+}

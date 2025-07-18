@@ -51,6 +51,7 @@
 		FBB3CC562DF9FA8200079592 /* CoreTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB3CC552DF9FA7E00079592 /* CoreTextField.swift */; };
 		FBB3CC582DFA00B300079592 /* ErrorTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB3CC572DFA00A000079592 /* ErrorTextField.swift */; };
 		FBB3CC5B2DFA098F00079592 /* EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB3CC5A2DFA098A00079592 /* EmailTextField.swift */; };
+		FBB418942E296A5100B76E19 /* CarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB418932E296A4C00B76E19 /* CarViewCell.swift */; };
 		FBB5A4B52DF0BF8E0038BD84 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB5A4B42DF0BF880038BD84 /* PrimaryButton.swift */; };
 		FBB5A4B82DF0C3B20038BD84 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB5A4B72DF0C3AE0038BD84 /* Spacing.swift */; };
 		FBD5AD5D2E05B578006EB293 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD5AD5C2E05B572006EB293 /* LoginViewModel.swift */; };
@@ -115,6 +116,7 @@
 		FBB3CC552DF9FA7E00079592 /* CoreTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTextField.swift; sourceTree = "<group>"; };
 		FBB3CC572DFA00A000079592 /* ErrorTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTextField.swift; sourceTree = "<group>"; };
 		FBB3CC5A2DFA098A00079592 /* EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextField.swift; sourceTree = "<group>"; };
+		FBB418932E296A4C00B76E19 /* CarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewCell.swift; sourceTree = "<group>"; };
 		FBB5A4B42DF0BF880038BD84 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		FBB5A4B72DF0C3AE0038BD84 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		FBD5AD5C2E05B572006EB293 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				FB7302E02E28084D003BA8F8 /* CarsListView.swift */,
+				FBB418932E296A4C00B76E19 /* CarViewCell.swift */,
 				FB7302E22E280859003BA8F8 /* CarsListViewModel.swift */,
 			);
 			path = List;
@@ -577,6 +580,7 @@
 				FB2935422E2556A500AB282C /* CarDTO.swift in Sources */,
 				FB67A2E42DE78B3600A10D7A /* BaseTextField.swift in Sources */,
 				FBB3CC5B2DFA098F00079592 /* EmailTextField.swift in Sources */,
+				FBB418942E296A5100B76E19 /* CarViewCell.swift in Sources */,
 				FB7302D92E280199003BA8F8 /* Car.swift in Sources */,
 				FB2935522E26B42C00AB282C /* CarInteractor.swift in Sources */,
 				FB262DBE2E01D56B000A5AC4 /* TextCaption.swift in Sources */,

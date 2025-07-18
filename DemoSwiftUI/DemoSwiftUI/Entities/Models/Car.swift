@@ -28,6 +28,10 @@ struct Car: Identifiable {
         self.releaseDate?.toStringWith("EEEE dd 'de' MMMM 'del' yyyy") ?? "Próximamente"
     }
     
+    var nameFormat: String {
+        "\(self.brand.name) : \(self.name)"
+    }
+    
     init(dto: CarDTO) {
         self.carId = dto.carId ?? 0
         self.name = dto.name ?? ""

@@ -10,20 +10,11 @@ import SwiftUI
 struct CarsListView: View {
     
     @ObservedObject private var viewModel: CarsListViewModel
-    private let columns = [GridItem(.flexible(), spacing: Spacing._none)]
     
     var body: some View {
         self.contentView {
-            GenericList(status: self.viewModel.status) {
-                AnyView(Color.red)
-            } emptyView: {
-                AnyView(Color.red)
-            } errorView: { message in
-                AnyView(Color.red)
-            } cell: { car in
-                AnyView(Color.red)
-            } refreshable: {
-                self.viewModel.getAll()
+            GenericList(status: self.viewModel.status) { item in
+                AnyView(CarViewCell(car: item))
             }
         }
     }
@@ -53,7 +44,7 @@ extension CarsListView {
     }
     
     static func buildMock() -> some View {
-        let carsService = CarsServiceMock()
+        let carsService = CarsService()
         let interactor = CarInteractor(carsService: carsService)
         let viewModel = CarsListViewModel(interactor: interactor)
         let view = CarsListView(viewModel: viewModel)

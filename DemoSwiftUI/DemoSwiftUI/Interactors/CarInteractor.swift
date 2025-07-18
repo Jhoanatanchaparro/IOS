@@ -22,7 +22,11 @@ struct CarInteractor: CarInteractorProtocol {
     func list() -> AnyPublisher<[Car], ServiceError> {
         self.carsService
             .execute()
-            .map({ $0.map({ Car(dto: $0) }) })
+            .map({ arrayCarDTO in
+                arrayCarDTO.map({ carDTO in
+                    Car(dto: carDTO)
+                })
+            })
             .mapServiceError()
             .eraseToAnyPublisher()
     }

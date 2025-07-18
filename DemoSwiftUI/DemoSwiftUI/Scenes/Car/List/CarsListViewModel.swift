@@ -10,8 +10,8 @@ import Combine
 
 class CarsListViewModel: ObservableObject {
     
-    @Published private(set) var status: GenericList<Car>.Status = .loading
-    
+    @Published private(set) var status: GenericListStatus<Car> = .loading
+    @Published private(set) var isRefreshable = false
     private let interactor: CarInteractorProtocol
     private var task: AnyCancellable?
     
