@@ -28,4 +28,3 @@ class MovieRemoteService : MovieService{
         }
 }
 
-//https://api.themoviedb.org/3/movie/popular?api_key=674d3fd8acf60310780d837db7e2fe17&language=es

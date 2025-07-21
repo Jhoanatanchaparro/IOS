@@ -10,6 +10,8 @@ import Combine
 
 final class CarsListViewModel: ObservableObject{
     @Published var movies: [Movie] = []
+    @Published var searchText: String = ""
+    
     private let interactor: MoviesInteractor
     
     init(interactor: MoviesInteractor){
@@ -21,6 +23,11 @@ final class CarsListViewModel: ObservableObject{
             DispatchQueue.main.async {
                 self?.movies = movies
             }
+        }
+    }
+    var filteredMovies: [Movie] {
+        movies.filter {
+            $0.title.normalized().contains(searchText.normalized()) || searchText.isEmpty
         }
     }
 }

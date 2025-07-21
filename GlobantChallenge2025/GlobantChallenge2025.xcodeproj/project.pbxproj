@@ -10,7 +10,6 @@
 		6820F50A2E29855900AF0630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6820F5062E29855900AF0630 /* Assets.xcassets */; };
 		6820F50B2E29855900AF0630 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F5072E29855900AF0630 /* ContentView.swift */; };
 		6820F50C2E29855900AF0630 /* GlobantChallenge2025App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F5082E29855900AF0630 /* GlobantChallenge2025App.swift */; };
-		6820F5192E29889400AF0630 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F5182E29888800AF0630 /* Movie.swift */; };
 		6820F51C2E29899000AF0630 /* MovieDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F51B2E29898200AF0630 /* MovieDTO.swift */; };
 		6820F51E2E298C8900AF0630 /* MovieServiceParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F51D2E298C7200AF0630 /* MovieServiceParams.swift */; };
 		6820F5242E298E0400AF0630 /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F5232E298E0000AF0630 /* String+Date.swift */; };
@@ -28,6 +27,15 @@
 		6820F5502E2A9FE900AF0630 /* CarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F54F2E2A9FDA00AF0630 /* CarDetailView.swift */; };
 		6820F5522E2AA00A00AF0630 /* CarDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F5512E2A9FF000AF0630 /* CarDetailViewModel.swift */; };
 		6820F5542E2AA02200AF0630 /* FavoriteStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F5532E2AA00F00AF0630 /* FavoriteStatus.swift */; };
+		6820F5572E2AD1DB00AF0630 /* FavoriteMovie+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F5562E2AD1C000AF0630 /* FavoriteMovie+CoreData.swift */; };
+		6820F5592E2AD40400AF0630 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F5582E2AD3F700AF0630 /* CoreDataStack.swift */; };
+		6862474B2E2AF54A0065E71E /* Dictionary+SafeAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6862474A2E2AF53E0065E71E /* Dictionary+SafeAccess.swift */; };
+		686247552E2AFD220065E71E /* FavoriteMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 686247532E2AFD220065E71E /* FavoriteMovie.xcdatamodeld */; };
+		686247572E2B00330065E71E /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686247562E2B002A0065E71E /* Movie.swift */; };
+		68B10C532E2ED15B00903FD6 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C522E2ED15200903FD6 /* MainTabView.swift */; };
+		68B10C572E2ED17E00903FD6 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C562E2ED17B00903FD6 /* TabItem.swift */; };
+		68B10C592E2EE5FE00903FD6 /* String+Normalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C582E2EE5F100903FD6 /* String+Normalize.swift */; };
+		68B10C5D2E2EE74100903FD6 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C5C2E2EE73E00903FD6 /* EmptyState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +43,6 @@
 		6820F5062E29855900AF0630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6820F5072E29855900AF0630 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6820F5082E29855900AF0630 /* GlobantChallenge2025App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobantChallenge2025App.swift; sourceTree = "<group>"; };
-		6820F5182E29888800AF0630 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		6820F51B2E29898200AF0630 /* MovieDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDTO.swift; sourceTree = "<group>"; };
 		6820F51D2E298C7200AF0630 /* MovieServiceParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceParams.swift; sourceTree = "<group>"; };
 		6820F5232E298E0000AF0630 /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
@@ -53,6 +60,15 @@
 		6820F54F2E2A9FDA00AF0630 /* CarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailView.swift; sourceTree = "<group>"; };
 		6820F5512E2A9FF000AF0630 /* CarDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailViewModel.swift; sourceTree = "<group>"; };
 		6820F5532E2AA00F00AF0630 /* FavoriteStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStatus.swift; sourceTree = "<group>"; };
+		6820F5562E2AD1C000AF0630 /* FavoriteMovie+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteMovie+CoreData.swift"; sourceTree = "<group>"; };
+		6820F5582E2AD3F700AF0630 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		6862474A2E2AF53E0065E71E /* Dictionary+SafeAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+SafeAccess.swift"; sourceTree = "<group>"; };
+		686247542E2AFD220065E71E /* FavoriteMovie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteMovie.xcdatamodel; sourceTree = "<group>"; };
+		686247562E2B002A0065E71E /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		68B10C522E2ED15200903FD6 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		68B10C562E2ED17B00903FD6 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		68B10C582E2EE5F100903FD6 /* String+Normalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Normalize.swift"; sourceTree = "<group>"; };
+		68B10C5C2E2EE73E00903FD6 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +87,7 @@
 			children = (
 				6820F5092E29855900AF0630 /* GlobantChallenge2025 */,
 				6820F4F52E294B5600AF0630 /* Products */,
+				686247532E2AFD220065E71E /* FavoriteMovie.xcdatamodeld */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				6820F5252E29905100AF0630 /* Services */,
+				6820F5552E2AD15700AF0630 /* CoreData */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -152,7 +170,7 @@
 		6820F5152E2987BA00AF0630 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6820F5182E29888800AF0630 /* Movie.swift */,
+				686247562E2B002A0065E71E /* Movie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,6 +195,8 @@
 		6820F51F2E298CF100AF0630 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				68B10C582E2EE5F100903FD6 /* String+Normalize.swift */,
+				6862474A2E2AF53E0065E71E /* Dictionary+SafeAccess.swift */,
 				6820F5412E2A907400AF0630 /* Result+Extensions.swift */,
 				6820F53C2E2998A500AF0630 /* Result+Handlers.swift */,
 				6820F5302E29943100AF0630 /* Error+Result.swift */,
@@ -229,6 +249,7 @@
 		6820F5482E2A91D800AF0630 /* Car */ = {
 			isa = PBXGroup;
 			children = (
+				68B10C512E2ED13F00903FD6 /* Tab */,
 				6820F54E2E2A9FBC00AF0630 /* Detail */,
 				6820F5492E2A91EE00AF0630 /* List */,
 			);
@@ -238,6 +259,7 @@
 		6820F5492E2A91EE00AF0630 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				68B10C5C2E2EE73E00903FD6 /* EmptyState.swift */,
 				6820F54C2E2A93C700AF0630 /* CarsListView.swift */,
 				6820F54A2E2A923C00AF0630 /* CarsListViewModel.swift */,
 			);
@@ -252,6 +274,24 @@
 				6820F54F2E2A9FDA00AF0630 /* CarDetailView.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		6820F5552E2AD15700AF0630 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				6820F5582E2AD3F700AF0630 /* CoreDataStack.swift */,
+				6820F5562E2AD1C000AF0630 /* FavoriteMovie+CoreData.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		68B10C512E2ED13F00903FD6 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				68B10C562E2ED17B00903FD6 /* TabItem.swift */,
+				68B10C522E2ED15200903FD6 /* MainTabView.swift */,
+			);
+			path = Tab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,10 +368,12 @@
 			files = (
 				6820F5292E29908300AF0630 /* MovieRemoteService.swift in Sources */,
 				6820F51C2E29899000AF0630 /* MovieDTO.swift in Sources */,
+				68B10C592E2EE5FE00903FD6 /* String+Normalize.swift in Sources */,
 				6820F50B2E29855900AF0630 /* ContentView.swift in Sources */,
 				6820F54B2E2A925F00AF0630 /* CarsListViewModel.swift in Sources */,
 				6820F5402E2A8F6900AF0630 /* MoviesInteractor.swift in Sources */,
 				6820F51E2E298C8900AF0630 /* MovieServiceParams.swift in Sources */,
+				68B10C572E2ED17E00903FD6 /* TabItem.swift in Sources */,
 				6820F5522E2AA00A00AF0630 /* CarDetailViewModel.swift in Sources */,
 				6820F53B2E29977600AF0630 /* AppInitializer.swift in Sources */,
 				6820F54D2E2A93F600AF0630 /* CarsListView.swift in Sources */,
@@ -339,11 +381,17 @@
 				6820F52B2E2990A300AF0630 /* MovieLocalService.swift in Sources */,
 				6820F52D2E2993DB00AF0630 /* MovieResponseDTO.swift in Sources */,
 				6820F5422E2A908800AF0630 /* Result+Extensions.swift in Sources */,
+				68B10C5D2E2EE74100903FD6 /* EmptyState.swift in Sources */,
+				6862474B2E2AF54A0065E71E /* Dictionary+SafeAccess.swift in Sources */,
+				686247572E2B00330065E71E /* Movie.swift in Sources */,
 				6820F50C2E29855900AF0630 /* GlobantChallenge2025App.swift in Sources */,
 				6820F5242E298E0400AF0630 /* String+Date.swift in Sources */,
 				6820F5542E2AA02200AF0630 /* FavoriteStatus.swift in Sources */,
 				6820F5312E29943300AF0630 /* Error+Result.swift in Sources */,
-				6820F5192E29889400AF0630 /* Movie.swift in Sources */,
+				68B10C532E2ED15B00903FD6 /* MainTabView.swift in Sources */,
+				686247552E2AFD220065E71E /* FavoriteMovie.xcdatamodeld in Sources */,
+				6820F5592E2AD40400AF0630 /* CoreDataStack.swift in Sources */,
+				6820F5572E2AD1DB00AF0630 /* FavoriteMovie+CoreData.swift in Sources */,
 				6820F5502E2A9FE900AF0630 /* CarDetailView.swift in Sources */,
 				6820F5272E29907100AF0630 /* MovieService.swift in Sources */,
 			);
@@ -483,6 +531,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -510,6 +559,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -547,6 +597,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		686247532E2AFD220065E71E /* FavoriteMovie.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				686247542E2AFD220065E71E /* FavoriteMovie.xcdatamodel */,
+			);
+			currentVersion = 686247542E2AFD220065E71E /* FavoriteMovie.xcdatamodel */;
+			path = FavoriteMovie.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6820F4EC2E294B5600AF0630 /* Project object */;
 }

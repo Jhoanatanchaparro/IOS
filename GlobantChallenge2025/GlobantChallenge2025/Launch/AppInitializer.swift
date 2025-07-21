@@ -8,10 +8,7 @@ import SwiftUI
 
 struct AppInitializer {
     static func buildRootView() -> some View {
-        let service = MovieRemoteService()
-        let interactor = MoviesInteractor(service: service)
-        let viewModel = CarsListViewModel(interactor: interactor)
-        return CarsListView(viewModel: viewModel)
+        MainTabView()
     }
 }
 

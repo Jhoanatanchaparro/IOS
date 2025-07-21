@@ -9,17 +9,17 @@ import SwiftUI
 
 struct CarsListView: View {
     @StateObject var viewModel: CarsListViewModel
-    
+
     var body: some View {
-        NavigationView{
-            List(viewModel.movies) { movie in
+        NavigationView {
+            List(viewModel.filteredMovies) { movie in
                 NavigationLink(destination: CarDetailView(viewModel: CarDetailViewModel(movie: movie))) {
                     Text(movie.title)
-                        .font(.headline)
+                }
             }
-            }
-            .navigationTitle("Peliculas")
+            .navigationTitle("Películas")
         }
-        .onAppear { viewModel.loadMovies()}
+        .searchable(text: $viewModel.searchText, prompt: "Buscar película...")
+        .onAppear { viewModel.loadMovies() }
     }
 }

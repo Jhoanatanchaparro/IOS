@@ -5,6 +5,7 @@
 //  Created by Jhonatan David Chaparro Alvarez on 18/07/25.
 //
 
+
 import SwiftUI
 
 struct CarDetailView: View {
@@ -30,9 +31,13 @@ struct CarDetailView: View {
 
                 HStack {
                     Spacer()
-                    Image(systemName: viewModel.favoriteStatus.icon)
-                        .foregroundColor(viewModel.favoriteStatus.color)
-                        .font(.title)
+                    Button(action: {
+                        viewModel.toggleFavorite()
+                    }) {
+                        Image(systemName: viewModel.favoriteStatus.icon)
+                            .foregroundColor(viewModel.favoriteStatus.color)
+                            .font(.title)
+                    }
                     Spacer()
                 }
             }
@@ -41,3 +46,4 @@ struct CarDetailView: View {
         .navigationTitle("Detalle")
     }
 }
+
