@@ -18,8 +18,13 @@ class MovieRemoteService : MovieService{
             let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)&language=es")!
 
             session.dataTask(with: url) { data, _, error in
+                let decoder = JSONDecoder()
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd"
+                decoder.dateDecodingStrategy = .formatted(formatter)
+
                 let result = data
-                    .flatMap { try? JSONDecoder().decode(MovieResponseDTO.self, from: $0) }
+                    .flatMap { try? decoder.decode(MovieResponseDTO.self, from: $0) }
                     .map { $0.results.map { $0.toDomain() } }
                     .map(Result.success) ?? error.map(Result.failure)
 
@@ -27,4 +32,5 @@ class MovieRemoteService : MovieService{
             }.resume()
         }
 }
+
 

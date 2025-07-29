@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  GlobantChallenge2025
+
+  Created by Jhonatan David Chaparro Alvarez on 22/07/25.
+  
+*/
+"movies.title" = "Películas";
+"favorites.title" = "Favoritos";
+"settings.title" = "Configuración";
+"search.prompt" = "Buscar película...";
+"movie.empty" = "No se encontraron películas.";
+"movie.error" = "Información no disponible temporalmente. Inténtalo más tarde.";
+"movie.noFavorites" = "Aún no tienes elementos favoritos agregados.";
+"movie.detail" = "Detalle";

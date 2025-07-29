@@ -2,7 +2,7 @@
 //  FavoriteStatus.swift
 //  GlobantChallenge2025
 //
-//  Created by Jhonatan David Chaparro Alvarez on 18/07/25.
+//  Created by Jhonatan David Chaparro Alvarez on 23/07/25.
 //
 
 import SwiftUI
@@ -23,4 +23,3 @@ enum FavoriteStatus {
         [true: .active, false: .inactive][isFavorite]!
     }
 }
-

@@ -7,7 +7,7 @@
 import Foundation
 
 final class MoviesInteractor{
-    private let service: MovieService
+    private(set) var service: MovieService
     
     init(service: MovieService) {
         self.service = service

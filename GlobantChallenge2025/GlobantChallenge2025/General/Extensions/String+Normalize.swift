@@ -10,6 +10,5 @@ import Foundation
 extension String {
     func normalized() -> String {
         folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
-            .replacingOccurrences(of: " ", with: "")
     }
 }

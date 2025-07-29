@@ -15,4 +15,7 @@ struct Movie: Identifiable {
     let releaseDate: Date?
     let popularity: Double
     let isFavorite: Bool
+    let genres: [String]
+    let voteAverage: Double
+    let translatedTitle: String?
 }
