@@ -1,8 +1,8 @@
 //
-//  CarDetailViewModel.swift
+//  MovieDetailViewModel.swift
 //  GlobantChallenge2025
 //
-//  Created by Jhonatan David Chaparro Alvarez on 18/07/25.
+//  Created by Jhonatan David Chaparro Alvarez on 5/08/25.
 //
 
 import Foundation
@@ -15,7 +15,10 @@ final class MovieDetailViewModel: ObservableObject {
 
     init(movie: Movie) {
         self.movie = movie
-        self.isFavorite = fetchIsFavorite()
+        self.isFavorite = false
+    }
+    func loadFavoriteStatus() {
+        isFavorite = fetchIsFavorite()
     }
 
     var favoriteStatus: FavoriteStatus {

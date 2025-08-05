@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct MovieDTO: Decodable {
     let id: Int
     let title: String
@@ -20,8 +21,9 @@ struct MovieDTO: Decodable {
     func toDomain(isFavorite: Bool = false) -> Movie {
         let mappedGenres = genre_ids.compactMap { GenreMapper.map[$0] }
         if mappedGenres.isEmpty {
-            print("⚠️ Sin géneros mapeados para: \(title), ids: \(genre_ids)")
+            print("Sin géneros mapeados para: \(title), ids: \(genre_ids)")
         }
+
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let parsedDate = release_date.flatMap { formatter.date(from: $0) }
@@ -34,9 +36,9 @@ struct MovieDTO: Decodable {
             releaseDate: parsedDate,
             popularity: popularity,
             isFavorite: isFavorite,
-            genres: genre_ids.compactMap { GenreMapper.map[$0] },
+            genres: mappedGenres,
             voteAverage: vote_average,
-            translatedTitle:original_title
+            translatedTitle: original_title
         )
     }
 }

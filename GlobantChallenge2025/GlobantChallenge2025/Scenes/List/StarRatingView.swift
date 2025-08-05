@@ -8,27 +8,24 @@
 import SwiftUI
 
 struct StarRatingView: View {
-    let rating: Double  
+    let rating: Double
 
     private let maxRating = 5
 
     var body: some View {
-        HStack(spacing: 4) {
-            ForEach(0..<maxRating, id: \.self) { index in
-                Image(systemName: starType(for: index))
-                    .foregroundColor(.yellow)
+            HStack(spacing: 4) {
+                ForEach(0..<maxRating, id: \.self) { index in
+                    Image(systemName: starType(for: index))
+                        .foregroundColor(.yellow)
+                }
             }
         }
-    }
-
+    
     private func starType(for index: Int) -> String {
         let scaledRating = rating / 2
-        if Double(index) < scaledRating.rounded(.down) {
-            return "star.fill"
-        } else if Double(index) < scaledRating {
-            return "star.leadinghalf.filled"
-        } else {
-            return "star"
-        }
+        let fullStars = Int(scaledRating)
+        let hasHalfStar = (scaledRating - Double(fullStars)) >= 0.5
+
+        return index < fullStars ? "star.fill" : (index == fullStars && hasHalfStar ? "star.leadinghalf.filled" : "star")
     }
 }

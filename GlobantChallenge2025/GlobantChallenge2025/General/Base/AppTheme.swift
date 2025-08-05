@@ -7,14 +7,22 @@
 
 import SwiftUI
 
-enum AppTheme: String, CaseIterable{
+enum AppTheme: String, CaseIterable {
     case system, light, dark
     
     var colorScheme: ColorScheme? {
-        [.system: nil, .light: .light, .dark: .dark][self]!
+        switch self {
+        case .system: return nil
+        case .light: return .light
+        case .dark: return .dark
+        }
     }
     
-    var label: String{
-        [.system: "Sistema", .light: "Claro", .dark: "Oscuro"][self]!
+    var label: String {
+        switch self {
+        case .system: return "Sistema"
+        case .light: return "Claro"
+        case .dark: return "Oscuro"
+        }
     }
 }

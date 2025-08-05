@@ -34,24 +34,26 @@ class MovieLocalService: MovieService {
     }
 
     func toggleFavorite(movie: Movie) {
-        let context = CoreDataStack.context
         let request = FavoriteMovie.fetchRequest()
         request.predicate = NSPredicate(format: "id == %d", movie.id)
 
-        if let existing = try? context.fetch(request).first {
-            context.delete(existing)
-        } else {
-            let favorite = FavoriteMovie(context: context)
-            favorite.id = Int64(movie.id)
-            favorite.title = movie.title
-            favorite.overview = movie.overview
-            favorite.posterURL = movie.posterURL?.absoluteString
-            favorite.releaseDate = movie.releaseDate
-            favorite.voteAverage = movie.voteAverage
-            favorite.genres = movie.genres
+        do {
+            if let existing = try context.fetch(request).first {
+                context.delete(existing)
+            } else {
+                let favorite = FavoriteMovie(context: context)
+                favorite.id = Int64(movie.id)
+                favorite.title = movie.title
+                favorite.overview = movie.overview
+                favorite.posterURL = movie.posterURL?.absoluteString
+                favorite.releaseDate = movie.releaseDate
+                favorite.voteAverage = movie.voteAverage
+                favorite.genres = movie.genres
+            }
+            try context.save()
+        } catch {
+            print("Error al alternar favorito: \(error.localizedDescription)")
         }
-
-        try? context.save()
     }
 
     private func fetchById(_ id: Int) -> [FavoriteMovie] {
@@ -59,6 +61,7 @@ class MovieLocalService: MovieService {
         request.predicate = NSPredicate(format: "id == %d", id)
         return (try? context.fetch(request)) ?? []
     }
+
     func limpiarFavoritosSinFecha() {
         let request = FavoriteMovie.fetchRequest()
         request.predicate = NSPredicate(format: "releaseDate == nil")
@@ -67,9 +70,9 @@ class MovieLocalService: MovieService {
             let sinFecha = try context.fetch(request)
             sinFecha.forEach(context.delete)
             try context.save()
-            print("🧹 Favoritos sin fecha eliminados: \(sinFecha.count)")
+            print("Favoritos sin fecha eliminados: \(sinFecha.count)")
         } catch {
-            print("❌ Error al limpiar favoritos sin fecha: \(error.localizedDescription)")
+            print("Error al limpiar favoritos sin fecha: \(error.localizedDescription)")
         }
     }
 
@@ -79,24 +82,22 @@ class MovieLocalService: MovieService {
 
         do {
             let favoritos = try context.fetch(request)
-            var actualizados = 0
-
-            for favorito in favoritos {
-                let movieID = Int(favorito.id)
-                if let peliculaConGeneros = buscarPeliculaEnCache(id: movieID),
-                   !peliculaConGeneros.genres.isEmpty {
-                    favorito.genres = peliculaConGeneros.genres
-                    actualizados += 1
+            let actualizados = favoritos.reduce(0) { count, favorito in
+                guard let peliculaConGeneros = buscarPeliculaEnCache(id: Int(favorito.id)),
+                      !peliculaConGeneros.genres.isEmpty else {
+                    return count
                 }
+                favorito.genres = peliculaConGeneros.genres
+                return count + 1
             }
 
             if context.hasChanges {
                 try context.save()
             }
 
-            print("✅ Favoritos actualizados con géneros: \(actualizados)")
+            print("Favoritos actualizados con géneros: \(actualizados)")
         } catch {
-            print("❌ Error al actualizar géneros vacíos: \(error.localizedDescription)")
+            print("Error al actualizar géneros vacíos: \(error.localizedDescription)")
         }
     }
 
@@ -104,5 +105,3 @@ class MovieLocalService: MovieService {
         return nil
     }
 }
-
-

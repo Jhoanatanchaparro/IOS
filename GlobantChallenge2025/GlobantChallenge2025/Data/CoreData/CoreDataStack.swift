@@ -14,8 +14,8 @@ enum CoreDataStack {
     static let container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "FavoriteMovie")
         container.loadPersistentStores { _, error in
-            if let error = error {
-                fatalError("❌ Error al cargar CoreData: \(error.localizedDescription)")
+            guard error == nil else {
+                fatalError("Error al cargar CoreData: \(error!.localizedDescription)")
             }
         }
         return container
@@ -27,12 +27,12 @@ enum CoreDataStack {
 
     static func save() {
         let context = container.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                print("❌ Error al guardar en CoreData:", error.localizedDescription)
-            }
+        guard context.hasChanges else { return }
+        
+        do {
+            try context.save()
+        } catch {
+            print("Error al guardar en CoreData: \(error.localizedDescription)")
         }
     }
 }

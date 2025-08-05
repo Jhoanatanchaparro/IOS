@@ -9,6 +9,7 @@ import Foundation
 final class MoviesViewModel: ObservableObject {
     @Published var movies: [Movie] = []
     @Published var searchText: String = ""
+
     
     let titleKey: String
     private let interactor: MoviesInteractor

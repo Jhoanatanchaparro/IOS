@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68088B442E4261A10076AAB0 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68088B432E42619E0076AAB0 /* MovieDetailViewModel.swift */; };
 		6820F50A2E29855900AF0630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6820F5062E29855900AF0630 /* Assets.xcassets */; };
-		6820F50B2E29855900AF0630 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F5072E29855900AF0630 /* ContentView.swift */; };
 		6820F50C2E29855900AF0630 /* GlobantChallenge2025App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F5082E29855900AF0630 /* GlobantChallenge2025App.swift */; };
 		6820F51C2E29899000AF0630 /* MovieDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F51B2E29898200AF0630 /* MovieDTO.swift */; };
 		6820F51E2E298C8900AF0630 /* MovieServiceParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F51D2E298C7200AF0630 /* MovieServiceParams.swift */; };
@@ -23,7 +23,6 @@
 		6820F5402E2A8F6900AF0630 /* MoviesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F53F2E2A8F4C00AF0630 /* MoviesInteractor.swift */; };
 		6820F5422E2A908800AF0630 /* Result+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F5412E2A907400AF0630 /* Result+Extensions.swift */; };
 		6820F5502E2A9FE900AF0630 /* CarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F54F2E2A9FDA00AF0630 /* CarDetailView.swift */; };
-		6820F5522E2AA00A00AF0630 /* CarDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F5512E2A9FF000AF0630 /* CarDetailViewModel.swift */; };
 		6820F5572E2AD1DB00AF0630 /* FavoriteMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F5562E2AD1C000AF0630 /* FavoriteMovie.swift */; };
 		6820F5592E2AD40400AF0630 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6820F5582E2AD3F700AF0630 /* CoreDataStack.swift */; };
 		6862474B2E2AF54A0065E71E /* Dictionary+SafeAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6862474A2E2AF53E0065E71E /* Dictionary+SafeAccess.swift */; };
@@ -50,9 +49,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		68088B432E42619E0076AAB0 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 		6820F4F42E294B5600AF0630 /* GlobantChallenge2025.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlobantChallenge2025.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6820F5062E29855900AF0630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6820F5072E29855900AF0630 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6820F5082E29855900AF0630 /* GlobantChallenge2025App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobantChallenge2025App.swift; sourceTree = "<group>"; };
 		6820F51B2E29898200AF0630 /* MovieDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDTO.swift; sourceTree = "<group>"; };
 		6820F51D2E298C7200AF0630 /* MovieServiceParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceParams.swift; sourceTree = "<group>"; };
@@ -67,7 +66,6 @@
 		6820F53F2E2A8F4C00AF0630 /* MoviesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesInteractor.swift; sourceTree = "<group>"; };
 		6820F5412E2A907400AF0630 /* Result+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extensions.swift"; sourceTree = "<group>"; };
 		6820F54F2E2A9FDA00AF0630 /* CarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailView.swift; sourceTree = "<group>"; };
-		6820F5512E2A9FF000AF0630 /* CarDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailViewModel.swift; sourceTree = "<group>"; };
 		6820F5562E2AD1C000AF0630 /* FavoriteMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovie.swift; sourceTree = "<group>"; };
 		6820F5582E2AD3F700AF0630 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		6862474A2E2AF53E0065E71E /* Dictionary+SafeAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+SafeAccess.swift"; sourceTree = "<group>"; };
@@ -124,16 +122,13 @@
 		6820F5092E29855900AF0630 /* GlobantChallenge2025 */ = {
 			isa = PBXGroup;
 			children = (
-				68BEB8F82E394FA00070C4D2 /* Session */,
+				6820F5082E29855900AF0630 /* GlobantChallenge2025App.swift */,
 				6820F5392E29974900AF0630 /* Launch */,
 				6820F5452E2A91B500AF0630 /* Scenes */,
 				6820F5112E2985D200AF0630 /* Data */,
 				6820F5102E2985BD00AF0630 /* Domain */,
 				6820F50F2E2985B100AF0630 /* General */,
 				6820F50E2E2985A100AF0630 /* Resources */,
-				6820F5062E29855900AF0630 /* Assets.xcassets */,
-				6820F5072E29855900AF0630 /* ContentView.swift */,
-				6820F5082E29855900AF0630 /* GlobantChallenge2025App.swift */,
 			);
 			path = GlobantChallenge2025;
 			sourceTree = "<group>";
@@ -142,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				68B10C712E2FE57400903FD6 /* Localization */,
+				6820F5062E29855900AF0630 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -150,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				68BEB8F02E32BE660070C4D2 /* Extensions */,
-				6820F5202E298CFB00AF0630 /* Components */,
 				6820F51F2E298CF100AF0630 /* Base */,
 			);
 			path = General;
@@ -204,8 +199,8 @@
 		6820F5172E29886A00AF0630 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				6820F52C2E2993C400AF0630 /* MovieResponseDTO.swift */,
 				6820F51B2E29898200AF0630 /* MovieDTO.swift */,
+				6820F52C2E2993C400AF0630 /* MovieResponseDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -219,13 +214,6 @@
 				68B10C622E2FCFF900903FD6 /* AppTheme.swift */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		6820F5202E298CFB00AF0630 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		6820F5252E29905100AF0630 /* Services */ = {
@@ -257,6 +245,7 @@
 		6820F5452E2A91B500AF0630 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				68BEB8F82E394FA00070C4D2 /* Session */,
 				68B10C682E2FD37300903FD6 /* Settings */,
 				68B10C512E2ED13F00903FD6 /* Tab */,
 				6820F54E2E2A9FBC00AF0630 /* Detail */,
@@ -268,9 +257,9 @@
 		6820F5492E2A91EE00AF0630 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				68BEB8F52E33DD020070C4D2 /* StarRatingView.swift */,
 				68ED04AA2E30277300CFF8F0 /* MoviesView.swift */,
 				68ED04A82E30275800CFF8F0 /* MoviesViewModel.swift */,
+				68BEB8F52E33DD020070C4D2 /* StarRatingView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -278,7 +267,7 @@
 		6820F54E2E2A9FBC00AF0630 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				6820F5512E2A9FF000AF0630 /* CarDetailViewModel.swift */,
+				68088B432E42619E0076AAB0 /* MovieDetailViewModel.swift */,
 				6820F54F2E2A9FDA00AF0630 /* CarDetailView.swift */,
 				68ED04AC2E30287200CFF8F0 /* MovieCellView.swift */,
 			);
@@ -439,12 +428,11 @@
 				68BEB8FA2E394FC80070C4D2 /* SessionManager.swift in Sources */,
 				6820F51C2E29899000AF0630 /* MovieDTO.swift in Sources */,
 				68B10C592E2EE5FE00903FD6 /* String+Normalize.swift in Sources */,
-				6820F50B2E29855900AF0630 /* ContentView.swift in Sources */,
 				68B10C672E2FD1DF00903FD6 /* ThemeViewModel.swift in Sources */,
 				6820F5402E2A8F6900AF0630 /* MoviesInteractor.swift in Sources */,
 				6820F51E2E298C8900AF0630 /* MovieServiceParams.swift in Sources */,
+				68088B442E4261A10076AAB0 /* MovieDetailViewModel.swift in Sources */,
 				68B10C572E2ED17E00903FD6 /* TabItem.swift in Sources */,
-				6820F5522E2AA00A00AF0630 /* CarDetailViewModel.swift in Sources */,
 				6820F53B2E29977600AF0630 /* AppInitializer.swift in Sources */,
 				68ED04A52E301DBA00CFF8F0 /* RootAppView.swift in Sources */,
 				68BEB8FC2E3950110070C4D2 /* LoginView.swift in Sources */,

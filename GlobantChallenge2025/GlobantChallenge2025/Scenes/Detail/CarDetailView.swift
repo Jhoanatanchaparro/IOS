@@ -9,22 +9,25 @@
 import SwiftUI
 
 struct CarDetailView: View {
-    @ObservedObject var viewModel: MovieDetailViewModel
+    @StateObject var viewModel: MovieDetailViewModel
+    @State private var isLoading: Bool = false
 
     var body: some View {
+        ZStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     AsyncImage(url: viewModel.movie.posterURL) { phase in
-                        if let image = phase.image {
+                        switch phase {
+                        case .success(let image):
                             image
                                 .resizable()
                                 .scaledToFill()
                                 .frame(height: 250)
                                 .clipped()
-                        } else if phase.error != nil {
+                        case .failure:
                             Color.red
                                 .frame(height: 250)
-                        } else {
+                        default:
                             Color.gray.opacity(0.3)
                                 .frame(height: 250)
                         }
@@ -36,11 +39,11 @@ struct CarDetailView: View {
                             .font(.title2)
                             .bold()
                         
-                        Text("Fecha de lanzamiento:\n\(viewModel.formattedReleaseDate)")
+                        Text("Fecha de lanzamiento: \(viewModel.formattedReleaseDate)")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
-                    
+
                     StarRatingView(rating: viewModel.movie.voteAverage)
 
                     Divider()
@@ -48,38 +51,52 @@ struct CarDetailView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Géneros:")
                             .font(.headline)
-                        if viewModel.movie.genres.isEmpty {
-                            Text("No disponibles")
-                                .foregroundColor(.gray)
-                        } else {
-                            Text(viewModel.movie.genres.joined(separator: " • "))
-                        }
+                        
+                        Text(viewModel.formattedGenres)
+                            .foregroundColor(viewModel.movie.genres.isEmpty ? .gray : .primary)
                     }
 
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Descripción:")
                             .font(.headline)
 
-                        Text(viewModel.movie.overview)
+                        Text(viewModel.movie.overview.isEmpty ? "Descripción no disponible." : viewModel.movie.overview)
                             .font(.body)
                             .foregroundColor(.secondary)
+                            .italic(viewModel.movie.overview.isEmpty)
                     }
                 }
                 .padding()
             }
-        
-            .navigationTitle("movie.detail".localized)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        viewModel.toggleFavorite()
-                    }) {
-                        Image(systemName: viewModel.favoriteStatus.icon)
-                            .foregroundColor(viewModel.favoriteStatus.color)
-                    }
+            .onAppear {
+                isLoading = true
+                viewModel.loadFavoriteStatus()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    isLoading = false
+                }
+            }
+
+            if isLoading {
+                Color.black.opacity(0.5)
+                    .ignoresSafeArea()
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                    .scaleEffect(2)
+            }
+        }
+        .navigationTitle("movie.detail".localized)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    viewModel.toggleFavorite()
+                }) {
+                    Image(systemName: viewModel.favoriteStatus.icon)
+                        .foregroundColor(viewModel.favoriteStatus.color)
                 }
             }
         }
+    }
 }
+
 
