@@ -128,7 +128,6 @@ struct LoginView: View {
             .padding()
             .preferredColorScheme(AppTheme(rawValue: selectedThemeRawValue)?.colorScheme)
             
-            // Indicador de carga
             if isLoading {
                 Color.black.opacity(0.5)
                     .ignoresSafeArea()

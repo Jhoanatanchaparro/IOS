@@ -8,6 +8,8 @@ struct MoviesView: View {
     @StateObject var viewModel: MoviesViewModel
     @EnvironmentObject var session: SessionManager
     @State private var isLoading: Bool = false
+    @Binding var selectedMovie: Movie?
+    @Binding var selectedFavorite: Movie?
 
     private let columns = [
         GridItem(.flexible(), spacing: 16),
@@ -29,6 +31,7 @@ struct MoviesView: View {
             }
             .searchable(text: $viewModel.searchText, prompt: "search.prompt".localized)
             .onAppear {
+                reloadData()
                 isLoading = true
                 viewModel.loadMovies()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -36,34 +39,32 @@ struct MoviesView: View {
                 }
             }
 
-            if isLoading {
-                Color.black.opacity(0.5)
-                    .ignoresSafeArea()
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                    .scaleEffect(2)
-            }
+            Color.black.opacity(0.5)
+                .ignoresSafeArea()
+                .overlay(
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .scaleEffect(2)
+                )
+                .opacity(isLoading ? 1 : 0)
         }
     }
 
     @ViewBuilder
     private var contentView: some View {
-        switch viewModel.titleKey.localized {
-        case "movies.title".localized:
-            movieListView
-        case "favorites.title".localized:
-            favoritesListView
-        default:
-            EmptyView()
-        }
+        [
+            "movies.title".localized: AnyView(movieListView),
+            "favorites.title".localized: AnyView(favoritesListView)
+        ][viewModel.titleKey.localized] ?? AnyView(EmptyView())
     }
 
     @ViewBuilder
     private var favoritesListView: some View {
-        if viewModel.filteredMovies.isEmpty {
+        Group {
             emptyFavoritesView
-        } else {
+                .opacity(viewModel.filteredMovies.isEmpty ? 1 : 0)
             favoritesGridView
+                .opacity(viewModel.filteredMovies.isEmpty ? 0 : 1)
         }
     }
 
@@ -73,16 +74,15 @@ struct MoviesView: View {
                 .font(.system(size: 40))
                 .foregroundColor(.blue)
 
-            Text(viewModel.searchText.isEmpty ? "Aún no tienes elementos favoritos agregados" : "No se encontraron resultados para la búsqueda de:")
+            Text((viewModel.searchText.isEmpty ? "Aún no tienes elementos favoritos agregados" : "No se encontraron resultados para la búsqueda de:"))
                 .multilineTextAlignment(.center)
                 .font(.headline)
                 .foregroundColor(.gray)
 
-            if !viewModel.searchText.isEmpty {
-                Text(viewModel.searchText)
-                    .font(.headline)
-                    .foregroundColor(.gray)
-            }
+            Text(viewModel.searchText)
+                .font(.headline)
+                .foregroundColor(.gray)
+                .opacity(viewModel.searchText.isEmpty ? 0 : 1)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
@@ -105,10 +105,11 @@ struct MoviesView: View {
 
     @ViewBuilder
     private var movieListView: some View {
-        if viewModel.noResults {
+        Group {
             noResultsView
-        } else {
+                .opacity(viewModel.noResults ? 1 : 0)
             movieList
+                .opacity(viewModel.noResults ? 0 : 1)
         }
     }
 
@@ -140,6 +141,9 @@ struct MoviesView: View {
 
                     NavigationLink(
                         destination: CarDetailView(viewModel: MovieDetailViewModel(movie: movie))
+                            .onDisappear {
+                                reloadData()
+                            }
                     ) {
                         MovieCellView(movie: movie, showRating: true)
                             .padding()
@@ -189,7 +193,12 @@ struct MoviesView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
+
+    private func reloadData() {
+        isLoading = true
+        viewModel.loadMovies()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            isLoading = false
+        }
+    }
 }
-
-
-

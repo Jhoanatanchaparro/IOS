@@ -11,6 +11,7 @@ import SwiftUI
 struct CarDetailView: View {
     @StateObject var viewModel: MovieDetailViewModel
     @State private var isLoading: Bool = false
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         ZStack {
@@ -74,6 +75,9 @@ struct CarDetailView: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     isLoading = false
                 }
+            }
+            .onDisappear {
+                NotificationCenter.default.post(name: Notification.Name("RefreshMoviesList"), object: nil)
             }
 
             if isLoading {

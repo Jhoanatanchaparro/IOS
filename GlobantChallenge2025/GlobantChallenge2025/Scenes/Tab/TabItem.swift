@@ -6,45 +6,21 @@
 //
 import SwiftUI
 
-
 enum TabItem: Int, CaseIterable {
-    case movies, favorites, settings
+    case movies, favorites
     
     var title: String {
         [
             .movies: "movies.title".localized,
-            .favorites: "favorites.title".localized,
-            .settings: "settings.title".localized
+            .favorites: "favorites.title".localized
         ][self]!
     }
     
     var icon: String {
         [
             .movies: "film",
-            .favorites: "star.fill",
-            .settings: "gear"
-        ][self]!
-    }
-    
-    var view: AnyView {
-        [
-            .movies: AnyView(
-                MoviesView(viewModel:
-                    MoviesViewModel(
-                        interactor: MoviesInteractor(service: MovieRemoteService()),
-                        titleKey: "movies.title"
-                    )
-                )
-            ),
-            .favorites: AnyView(
-                MoviesView(viewModel:
-                    MoviesViewModel(
-                        interactor: MoviesInteractor(service: MovieLocalService()),
-                        titleKey: "favorites.title"
-                    )
-                )
-            ),
-            .settings: AnyView(ThemeSettingsView())
+            .favorites: "star.fill"
         ][self]!
     }
 }
+
