@@ -18,4 +18,10 @@ final class MoviesInteractor{
             completion(result.successValue ?? [] )
         }
     }
+    func toggleFavorite(_ movie: Movie) {
+        if let localService = service as? MovieLocalService {
+            localService.toggleFavorite(movie: movie)
+        }
+    }
+
 }

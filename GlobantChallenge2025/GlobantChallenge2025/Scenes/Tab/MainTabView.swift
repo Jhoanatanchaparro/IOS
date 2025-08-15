@@ -11,15 +11,22 @@ struct MainTabView: View {
     @State private var selectedTab: TabItem = .movies
     @State private var movieSelection: Movie? = nil
     @State private var favoriteSelection: Movie? = nil
+    
+    @StateObject private var remoteVM = MoviesViewModel(
+        interactor: MoviesInteractor(service: MovieRemoteService()),
+        titleKey: "movies.title"
+    )
+    
+    @StateObject private var favoritesVM = MoviesViewModel(
+        interactor: MoviesInteractor(service: MovieLocalService()),
+        titleKey: "favorites.title"
+    )
 
     var body: some View {
         TabView(selection: $selectedTab) {
             
             MoviesView(
-                viewModel: MoviesViewModel(
-                    interactor: MoviesInteractor(service: MovieRemoteService()),
-                    titleKey: "movies.title"
-                ),
+                viewModel: remoteVM,
                 selectedMovie: $movieSelection,
                 selectedFavorite: $favoriteSelection
             )
@@ -29,10 +36,7 @@ struct MainTabView: View {
             .tag(TabItem.movies)
             
             MoviesView(
-                viewModel: MoviesViewModel(
-                    interactor: MoviesInteractor(service: MovieLocalService()),
-                    titleKey: "favorites.title"
-                ),
+                viewModel: favoritesVM,
                 selectedMovie: $movieSelection,
                 selectedFavorite: $favoriteSelection
             )
@@ -41,15 +45,7 @@ struct MainTabView: View {
             }
             .tag(TabItem.favorites)
         }
-        .onChange(of: selectedTab) { oldValue, newValue in
-            if newValue == .movies {
-                favoriteSelection = nil
-                movieSelection = nil
-            } else if newValue == .favorites {
-                movieSelection = nil
-                favoriteSelection = nil
-            }
-        }
     }
-    
 }
+
+

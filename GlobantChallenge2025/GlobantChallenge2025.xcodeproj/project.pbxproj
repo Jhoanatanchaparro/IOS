@@ -246,8 +246,8 @@
 				68BEB8F82E394FA00070C4D2 /* Session */,
 				68B10C682E2FD37300903FD6 /* Settings */,
 				68B10C512E2ED13F00903FD6 /* Tab */,
-				6820F54E2E2A9FBC00AF0630 /* Detail */,
 				6820F5492E2A91EE00AF0630 /* List */,
+				6820F54E2E2A9FBC00AF0630 /* Detail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -255,9 +255,9 @@
 		6820F5492E2A91EE00AF0630 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				68ED04AA2E30277300CFF8F0 /* MoviesView.swift */,
-				68ED04A82E30275800CFF8F0 /* MoviesViewModel.swift */,
 				68BEB8F52E33DD020070C4D2 /* StarRatingView.swift */,
+				68ED04A82E30275800CFF8F0 /* MoviesViewModel.swift */,
+				68ED04AA2E30277300CFF8F0 /* MoviesView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";

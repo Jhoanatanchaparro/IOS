@@ -15,8 +15,9 @@ final class MovieDetailViewModel: ObservableObject {
 
     init(movie: Movie) {
         self.movie = movie
-        self.isFavorite = false
+        self.isFavorite = fetchIsFavorite()
     }
+    
     func loadFavoriteStatus() {
         isFavorite = fetchIsFavorite()
     }
@@ -30,28 +31,12 @@ final class MovieDetailViewModel: ObservableObject {
     }
 
     var formattedGenres: String {
-        if movie.genres.isEmpty {
-            return "No disponibles"
-        }
-        return movie.genres.joined(separator: ", ")
+        movie.genres.isEmpty ? "No disponibles" : movie.genres.joined(separator: ", ")
     }
 
     func toggleFavorite() {
         service.toggleFavorite(movie: movie)
-        isFavorite.toggle()
-        
-        movie = Movie(
-            id: movie.id,
-            title: movie.title,
-            overview: movie.overview,
-            posterURL: movie.posterURL,
-            releaseDate: movie.releaseDate,
-            popularity: movie.popularity,
-            isFavorite: isFavorite,
-            genres: movie.genres,
-            voteAverage: movie.voteAverage,
-            translatedTitle: movie.translatedTitle
-        )
+        isFavorite = fetchIsFavorite()
     }
 
     private func fetchIsFavorite() -> Bool {
@@ -60,3 +45,4 @@ final class MovieDetailViewModel: ObservableObject {
         return (try? CoreDataStack.context.fetch(request))?.isEmpty == false
     }
 }
+

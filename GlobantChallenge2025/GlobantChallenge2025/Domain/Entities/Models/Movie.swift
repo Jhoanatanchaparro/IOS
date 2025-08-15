@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Movie: Identifiable, Hashable {
+struct Movie: Identifiable, Codable, Hashable {
     let id: Int
     let title: String
     let overview: String
     let posterURL: URL?
     let releaseDate: Date?
     let popularity: Double
-    let isFavorite: Bool
+    var isFavorite: Bool
     let genres: [String]
     let voteAverage: Double
     let translatedTitle: String?

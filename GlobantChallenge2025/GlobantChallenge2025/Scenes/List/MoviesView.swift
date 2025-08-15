@@ -4,8 +4,6 @@
 //
 import SwiftUI
 
-import SwiftUI
-
 struct MoviesView: View {
     @StateObject var viewModel: MoviesViewModel
     @EnvironmentObject var session: SessionManager
@@ -36,11 +34,11 @@ struct MoviesView: View {
                     .navigationDestination(for: Movie.self) { movie in
                         CarDetailView(viewModel: MovieDetailViewModel(movie: movie))
                             .onDisappear {
-                                reloadData()
+                                reloadData(force: viewModel.isFavoriteView)
                             }
                     }
                     .onAppear {
-                        reloadData()
+                        reloadData(force: viewModel.isFavoriteView)
                     }
             }
 
@@ -155,7 +153,7 @@ struct MoviesView: View {
         }
         .listStyle(.plain)
         .refreshable {
-            reloadData(delay: 2)
+            reloadData(delay: 2, force: viewModel.isFavoriteView)
         }
     }
 
@@ -189,22 +187,11 @@ struct MoviesView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
-    private func reloadData(delay: Double = 1) {
+    private func reloadData(delay: Double = 1, force: Bool = false) {
         isLoading = true
-        viewModel.loadMovies()
+        viewModel.loadMovies(forceReload: force)
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             isLoading = false
         }
     }
-}
-#Preview {
-    MoviesView(
-        viewModel: MoviesViewModel(
-            interactor: MoviesInteractor(service: MovieLocalService()),
-            titleKey: "movies.title"
-        ),
-        selectedMovie: .constant(nil),
-        selectedFavorite: .constant(nil)
-    )
-    .environmentObject(SessionManager())
 }

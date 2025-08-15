@@ -33,6 +33,20 @@ final class MoviesViewModel: ObservableObject {
         }
     }
     
+    func toggleFavorite(for movie: Movie) {
+        interactor.toggleFavorite(movie)
+
+        if isFavoriteView {
+            loadMovies(forceReload: true)
+        } else {
+            if let index = movies.firstIndex(where: { $0.id == movie.id }) {
+                var updatedMovie = movies[index]
+                updatedMovie.isFavorite.toggle()
+                movies[index] = updatedMovie
+            }
+        }
+    }
+    
     var filteredMovies: [Movie] {
         let query = searchText.normalized().trimmingCharacters(in: .whitespacesAndNewlines)
 
