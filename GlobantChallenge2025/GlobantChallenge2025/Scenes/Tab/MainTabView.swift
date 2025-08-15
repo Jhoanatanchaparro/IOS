@@ -43,8 +43,8 @@ struct MainTabView: View {
         }
         .onChange(of: selectedTab) { oldValue, newValue in
             if newValue == .movies {
-                favoriteSelection = nil // salir de detalle de favoritos
-                movieSelection = nil    // asegurarse que la lista esté limpia
+                favoriteSelection = nil
+                movieSelection = nil
             } else if newValue == .favorites {
                 movieSelection = nil
                 favoriteSelection = nil

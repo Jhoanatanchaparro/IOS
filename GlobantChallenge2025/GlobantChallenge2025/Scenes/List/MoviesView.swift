@@ -4,12 +4,16 @@
 //
 import SwiftUI
 
+import SwiftUI
+
 struct MoviesView: View {
     @StateObject var viewModel: MoviesViewModel
     @EnvironmentObject var session: SessionManager
     @State private var isLoading: Bool = false
     @Binding var selectedMovie: Movie?
     @Binding var selectedFavorite: Movie?
+
+    @State private var path: [Movie] = []
 
     private let columns = [
         GridItem(.flexible(), spacing: 16),
@@ -18,7 +22,7 @@ struct MoviesView: View {
 
     var body: some View {
         ZStack {
-            NavigationView {
+            NavigationStack(path: $path) {
                 contentView
                     .navigationTitle(viewModel.titleKey.localized)
                     .toolbar {
@@ -28,43 +32,52 @@ struct MoviesView: View {
                             }
                         }
                     }
-            }
-            .searchable(text: $viewModel.searchText, prompt: "search.prompt".localized)
-            .onAppear {
-                reloadData()
-                isLoading = true
-                viewModel.loadMovies()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    isLoading = false
-                }
+                    .searchable(text: $viewModel.searchText, prompt: "search.prompt".localized)
+                    .navigationDestination(for: Movie.self) { movie in
+                        CarDetailView(viewModel: MovieDetailViewModel(movie: movie))
+                            .onDisappear {
+                                reloadData()
+                            }
+                    }
+                    .onAppear {
+                        reloadData()
+                    }
             }
 
-            Color.black.opacity(0.5)
-                .ignoresSafeArea()
-                .overlay(
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                        .scaleEffect(2)
-                )
-                .opacity(isLoading ? 1 : 0)
+            // Overlay de carga
+            if isLoading {
+                Color.black.opacity(0.5)
+                    .ignoresSafeArea()
+                    .overlay(
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                            .scaleEffect(2)
+                    )
+            }
         }
     }
 
+    // Vista principal
     @ViewBuilder
     private var contentView: some View {
-        [
-            "movies.title".localized: AnyView(movieListView),
-            "favorites.title".localized: AnyView(favoritesListView)
-        ][viewModel.titleKey.localized] ?? AnyView(EmptyView())
+        if viewModel.titleKey.localized == "movies.title".localized {
+            movieListView
+        } else if viewModel.titleKey.localized == "favorites.title".localized {
+            favoritesListView
+        } else {
+            EmptyView()
+        }
     }
 
+    // Lista de favoritos
     @ViewBuilder
     private var favoritesListView: some View {
         Group {
-            emptyFavoritesView
-                .opacity(viewModel.filteredMovies.isEmpty ? 1 : 0)
-            favoritesGridView
-                .opacity(viewModel.filteredMovies.isEmpty ? 0 : 1)
+            if viewModel.filteredMovies.isEmpty {
+                emptyFavoritesView
+            } else {
+                favoritesGridView
+            }
         }
     }
 
@@ -74,15 +87,18 @@ struct MoviesView: View {
                 .font(.system(size: 40))
                 .foregroundColor(.blue)
 
-            Text((viewModel.searchText.isEmpty ? "Aún no tienes elementos favoritos agregados" : "No se encontraron resultados para la búsqueda de:"))
+            Text(viewModel.searchText.isEmpty
+                 ? "Aún no tienes elementos favoritos agregados"
+                 : "No se encontraron resultados para la búsqueda de:")
                 .multilineTextAlignment(.center)
                 .font(.headline)
                 .foregroundColor(.gray)
 
-            Text(viewModel.searchText)
-                .font(.headline)
-                .foregroundColor(.gray)
-                .opacity(viewModel.searchText.isEmpty ? 0 : 1)
+            if !viewModel.searchText.isEmpty {
+                Text(viewModel.searchText)
+                    .font(.headline)
+                    .foregroundColor(.gray)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
@@ -92,9 +108,7 @@ struct MoviesView: View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(viewModel.filteredMovies, id: \.id) { movie in
-                    NavigationLink(
-                        destination: CarDetailView(viewModel: MovieDetailViewModel(movie: movie))
-                    ) {
+                    NavigationLink(value: movie) {
                         movieCellView(for: movie)
                     }
                 }
@@ -103,13 +117,15 @@ struct MoviesView: View {
         }
     }
 
+    // Lista de películas
     @ViewBuilder
     private var movieListView: some View {
         Group {
-            noResultsView
-                .opacity(viewModel.noResults ? 1 : 0)
-            movieList
-                .opacity(viewModel.noResults ? 0 : 1)
+            if viewModel.noResults {
+                noResultsView
+            } else {
+                movieList
+            }
         }
     }
 
@@ -134,36 +150,20 @@ struct MoviesView: View {
     private var movieList: some View {
         List {
             ForEach(viewModel.filteredMovies) { movie in
-                ZStack {
-                    RoundedRectangle(cornerRadius: 15)
-                        .fill(Color(.systemGray6))
-                        .shadow(color: Color.black.opacity(0.05), radius: 4, x: 0, y: 2)
-
-                    NavigationLink(
-                        destination: CarDetailView(viewModel: MovieDetailViewModel(movie: movie))
-                            .onDisappear {
-                                reloadData()
-                            }
-                    ) {
-                        MovieCellView(movie: movie, showRating: true)
-                            .padding()
-                    }
-                    .buttonStyle(PlainButtonStyle())
+                NavigationLink(value: movie) {
+                    MovieCellView(movie: movie, showRating: true)
+                        .padding()
                 }
-                .listRowSeparator(.hidden)
-                .padding(.vertical, 4)
+                .buttonStyle(PlainButtonStyle())
             }
         }
         .listStyle(.plain)
         .refreshable {
-            isLoading = true
-            viewModel.loadMovies()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                isLoading = false
-            }
+            reloadData(delay: 2)
         }
     }
 
+    // Celda de película
     private func movieCellView(for movie: Movie) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             AsyncImage(url: movie.posterURL) { image in
@@ -194,10 +194,11 @@ struct MoviesView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
-    private func reloadData() {
+    // Recarga de datos
+    private func reloadData(delay: Double = 1) {
         isLoading = true
         viewModel.loadMovies()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             isLoading = false
         }
     }
