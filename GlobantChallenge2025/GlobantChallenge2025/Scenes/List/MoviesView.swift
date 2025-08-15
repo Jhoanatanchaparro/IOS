@@ -44,7 +44,6 @@ struct MoviesView: View {
                     }
             }
 
-            // Overlay de carga
             if isLoading {
                 Color.black.opacity(0.5)
                     .ignoresSafeArea()
@@ -57,7 +56,6 @@ struct MoviesView: View {
         }
     }
 
-    // Vista principal
     @ViewBuilder
     private var contentView: some View {
         if viewModel.titleKey.localized == "movies.title".localized {
@@ -69,7 +67,6 @@ struct MoviesView: View {
         }
     }
 
-    // Lista de favoritos
     @ViewBuilder
     private var favoritesListView: some View {
         Group {
@@ -117,7 +114,6 @@ struct MoviesView: View {
         }
     }
 
-    // Lista de películas
     @ViewBuilder
     private var movieListView: some View {
         Group {
@@ -163,7 +159,6 @@ struct MoviesView: View {
         }
     }
 
-    // Celda de película
     private func movieCellView(for movie: Movie) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             AsyncImage(url: movie.posterURL) { image in
@@ -194,7 +189,6 @@ struct MoviesView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
-    // Recarga de datos
     private func reloadData(delay: Double = 1) {
         isLoading = true
         viewModel.loadMovies()
@@ -202,4 +196,15 @@ struct MoviesView: View {
             isLoading = false
         }
     }
+}
+#Preview {
+    MoviesView(
+        viewModel: MoviesViewModel(
+            interactor: MoviesInteractor(service: MovieLocalService()),
+            titleKey: "movies.title"
+        ),
+        selectedMovie: .constant(nil),
+        selectedFavorite: .constant(nil)
+    )
+    .environmentObject(SessionManager())
 }
