@@ -12,8 +12,8 @@ struct MoviesView: View {
     @Binding var selectedMovie: Movie?
     @Binding var selectedFavorite: Movie?
 
-    @State private var path: [Movie] = []
-
+    @Binding var path: [Movie]
+    
     private let columns = [
         GridItem(.flexible(), spacing: 16),
         GridItem(.flexible(), spacing: 16)

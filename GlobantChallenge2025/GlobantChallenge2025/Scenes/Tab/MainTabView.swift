@@ -12,6 +12,9 @@ struct MainTabView: View {
     @State private var movieSelection: Movie? = nil
     @State private var favoriteSelection: Movie? = nil
     
+    @State private var moviesPath: [Movie] = []
+    @State private var favoritesPath: [Movie] = []
+    
     @StateObject private var remoteVM = MoviesViewModel(
         interactor: MoviesInteractor(service: MovieRemoteService()),
         titleKey: "movies.title"
@@ -28,7 +31,8 @@ struct MainTabView: View {
             MoviesView(
                 viewModel: remoteVM,
                 selectedMovie: $movieSelection,
-                selectedFavorite: $favoriteSelection
+                selectedFavorite: $favoriteSelection,
+                path: $moviesPath
             )
             .tabItem {
                 Label(TabItem.movies.title, systemImage: TabItem.movies.icon)
@@ -38,12 +42,21 @@ struct MainTabView: View {
             MoviesView(
                 viewModel: favoritesVM,
                 selectedMovie: $movieSelection,
-                selectedFavorite: $favoriteSelection
+                selectedFavorite: $favoriteSelection,
+                path: $favoritesPath
             )
             .tabItem {
                 Label(TabItem.favorites.title, systemImage: TabItem.favorites.icon)
             }
             .tag(TabItem.favorites)
+        }
+        .onChange(of: selectedTab) {
+            switch selectedTab {
+            case .movies:
+                favoritesPath.removeAll()
+            case .favorites:
+                moviesPath.removeAll()
+            }
         }
     }
 }
