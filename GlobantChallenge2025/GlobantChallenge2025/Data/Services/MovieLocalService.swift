@@ -38,9 +38,9 @@ class MovieLocalService: MovieService {
         request.predicate = NSPredicate(format: "id == %d", movie.id)
 
         do {
-            if let existing = try context.fetch(request).first {
-                context.delete(existing)
-            } else {
+            let existing = try context.fetch(request).first
+            
+            guard let existing = existing else {
                 let favorite = FavoriteMovie(context: context)
                 favorite.id = Int64(movie.id)
                 favorite.title = movie.title
@@ -49,8 +49,13 @@ class MovieLocalService: MovieService {
                 favorite.releaseDate = movie.releaseDate
                 favorite.voteAverage = movie.voteAverage
                 favorite.genres = movie.genres
+                
+                try context.save()
+                return
             }
+                        context.delete(existing)
             try context.save()
+            
         } catch {
             print("Error al alternar favorito: \(error.localizedDescription)")
         }
