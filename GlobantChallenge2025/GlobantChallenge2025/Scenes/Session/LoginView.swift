@@ -23,7 +23,6 @@ struct LoginView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 20) {
-                // Contenido de la vista de inicio de sesión
                 Text("Correo")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.headline)
@@ -102,8 +101,7 @@ struct LoginView: View {
                 Button(action: {
                     isLoading = true
                     session.login(with: email)
-                    // Simular un retraso para la carga
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         isLoading = false
                     }
                 }) {
@@ -139,7 +137,6 @@ struct LoginView: View {
     }
 }
 
-// Estilo de toggle personalizado con un icono de checkbox.
 struct CheckboxToggleStyle: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
         HStack {
@@ -150,7 +147,6 @@ struct CheckboxToggleStyle: ToggleStyle {
     }
 }
 
-// Extensión para validar si un string es un correo electrónico válido.
 extension String {
     var isValidEmail: Bool {
         let regex = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$"#

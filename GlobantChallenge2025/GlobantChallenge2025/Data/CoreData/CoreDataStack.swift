@@ -5,10 +5,7 @@
 //  Created by Jhonatan David Chaparro Alvarez on 18/07/25.
 //
 
-// Data/CoreData/CoreDataStack.swift
-
 import CoreData
-
 
 enum CoreDataStack {
     static let container: NSPersistentContainer = {
